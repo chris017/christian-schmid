@@ -44,7 +44,7 @@ const Home: React.FC = () => {
                 </Text>
                 <Text fontSize={{ base: "lg", lg: "2xl" }}>
                   Your tech wizard who transforms ideas into reality. Feel free to
-                  check out my projects and don't hesitate to get in touch. Let&apos;s
+                  check out my projects and don&apos;t hesitate to get in touch. Let&apos;s
                   make something amazing!
                 </Text>
                 <ButtonGroup variant="outline" spacing="6" mt={4} size={"lg"}>
