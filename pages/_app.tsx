@@ -11,6 +11,8 @@ import {
   polygon,
   zora,
 } from 'wagmi/chains';
+import { extendTheme } from "@chakra-ui/react"
+import { ChakraProvider } from '@chakra-ui/react';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -38,11 +40,27 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
+const theme = extendTheme({
+  styles: {
+    global: () => ({
+      body: {
+        backgroundColor: "white",
+        backgroundImage: "linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)",
+        color: "black",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+      }
+    })
+  }
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+        </ChakraProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   );
