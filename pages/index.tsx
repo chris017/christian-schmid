@@ -39,7 +39,7 @@ const Home: React.FC = () => {
                   fontWeight="bold"
                   mb="4"
                 >
-                  Hi, I am<br />Christian Schmid 👋🏼
+                  Hi, I am<br /><span className={styles.gradient}>Christian Schmid 👋🏼</span>
                 </Text>
                 <Text fontSize={{ base: "lg", lg: "2xl" }}>
                   Your tech wizard who transforms ideas into reality. Feel free to
@@ -47,12 +47,14 @@ const Home: React.FC = () => {
                   make something amazing!
                 </Text>
                 <ButtonGroup variant="outline" spacing="6" mt={4} size={"lg"}>
-                  <Button colorScheme="gray.200" borderRadius="full">
-                      Hire Me
+                  <Button  style={{backgroundColor: "#3c2460", color: "white"}} className={styles.projects}>
+                      Projects
                     </Button>
-                    <Button colorScheme="gray.200" borderRadius="full">
-                      Hello
-                    </Button>
+                    <Link target="_blank" href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a/">
+                      <Button  style={{backgroundColor: "#deb5e3"}} className={styles.hire}>
+                        Hire Me
+                      </Button>
+                    </Link>
                 </ButtonGroup>
               </Container>
             </Center>

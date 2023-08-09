@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { getDefaultWallets, RainbowKitProvider, lightTheme } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
@@ -44,11 +44,8 @@ const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        backgroundColor: "white",
-        backgroundImage: "linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)",
-        color: "black",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
+        bg: "#E9EAF7",
+        fontFamily: "Inter",
       }
     })
   }
@@ -57,7 +54,14 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider chains={chains} modalSize="compact" theme={lightTheme({
+            accentColor:
+            "#3c2460",
+            accentColorForeground: "white",
+            borderRadius: "small",
+            fontStack: "system",
+            overlayBlur: "small",
+          })}>
         <ChakraProvider theme={theme}>
           <Component {...pageProps} />
         </ChakraProvider>

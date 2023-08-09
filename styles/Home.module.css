@@ -1,3 +1,19 @@
 .rootContainer {
   max-height: 100vh; /* Set maximum height to 100vh */
 }
+
+.gradient {
+  background: linear-gradient(120deg, #3c2460, #8b3894);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.projects:hover{
+  transform: translate(0, -3px);
+  box-shadow: 0 20px 80px -10px #3c2460;
+}
+
+.hire:hover{
+  transform: translate(0, -3px);
+  box-shadow: 0 20px 80px -10px #deb5e3;
+}
