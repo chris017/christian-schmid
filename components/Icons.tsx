@@ -7,7 +7,6 @@ import {
   IconButton,
   Link,
 } from "@chakra-ui/react";
-import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
