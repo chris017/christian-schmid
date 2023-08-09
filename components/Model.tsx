@@ -16,7 +16,7 @@ interface ModelProps {
 
 const Model: React.FC<ModelProps> = (props) => {
   const { nodes } = useGLTF("/eth.gltf") as ExtendedGLTF; // Cast the useGLTF result to ExtendedGLTF
-
+  
   return (
     <group {...props} dispose={null}>
       {nodes && (
