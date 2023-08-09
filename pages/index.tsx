@@ -29,7 +29,6 @@ const Home: React.FC = () => {
       <Center>
         <Flex
           flexDirection={{ base: "column", lg: "row" }}
-          size={"lg"}
           style={{paddingTop: isMobile ? 0 : "8vh"}}
         >
           <Box width={{ base: "100%", lg: "50%" }}>

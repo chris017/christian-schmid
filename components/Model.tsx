@@ -6,7 +6,9 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader"; // Import the GLTF
 // Define the extended GLTF interface
 interface ExtendedGLTF extends GLTF {
   nodes: {
-    [key: string]: THREE.Object3D;
+    Plane: THREE.Mesh;
+    Plane001: THREE.Mesh;
+    // ... other nodes if there are any
   };
 }
 
