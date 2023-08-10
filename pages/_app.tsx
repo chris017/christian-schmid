@@ -42,14 +42,26 @@ const wagmiConfig = createConfig({
 
 const theme = extendTheme({
   styles: {
-    global: () => ({
+    global: {
       body: {
         bg: "#E9EAF7",
         fontFamily: "Inter",
-      }
-    })
-  }
+      },
+    },
+  },
+  components: {
+    Drawer: {
+      baseStyle: {
+        dialog: {
+          bg: "#E9EAF7", // Set your desired background color here
+          fontFamily: "Inter",
+        },
+      },
+    },
+  },
 });
+
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

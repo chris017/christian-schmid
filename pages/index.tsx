@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import Model from "../components/Model";
 import Icons from "../components/Icons";
+import Projects from "../components/Projects";
 const Home: React.FC = () => {
 
   const [isMobile, setIsMobile] = useState(false); // Use state to store isMobile value
@@ -47,9 +48,7 @@ const Home: React.FC = () => {
                   make something amazing!
                 </Text>
                 <ButtonGroup variant="outline" spacing="6" mt={4} size={"lg"}>
-                  <Button  style={{backgroundColor: "#3c2460", color: "white"}} className={styles.projects}>
-                      Projects
-                    </Button>
+                    <Projects />
                     <Link target="_blank" href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a/">
                       <Button  style={{backgroundColor: "#deb5e3"}} className={styles.hire}>
                         Hire Me
