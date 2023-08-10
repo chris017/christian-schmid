@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; // Import useState and useEffect
+import React, { useEffect, useState } from "react"; 
 import { Canvas } from "@react-three/fiber";
 import { PresentationControls, Float } from "@react-three/drei";
 import styles from "../styles/Home.module.css";
