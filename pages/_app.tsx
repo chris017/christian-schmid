@@ -44,7 +44,7 @@ const theme = extendTheme({
     global: {
       body: {
         bg: "#E9EAF7",
-        fontFamily: "Inter",
+        fontFamily: "Inter !important",
       },
     },
   },

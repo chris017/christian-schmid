@@ -40,7 +40,7 @@ const Home: React.FC = () => {
                   fontWeight="bold"
                   mb="4"
                 >
-                  Hi, I am<br /><span className={styles.gradient}>Christian Schmid 👋🏼</span>
+                  Hi, I am<br /><span className={styles.gradient}>Christian Schmid</span>
                 </Text>
                 <Text fontSize={{ base: "lg", lg: "2xl" }}>
                   Your tech wizard who transforms ideas into reality. Feel free to
