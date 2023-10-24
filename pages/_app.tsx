@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider, lightTheme } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
+import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
   arbitrum,
@@ -19,11 +20,14 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
     mainnet,
     polygon,
-    optimism,
-    arbitrum,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   ],
-  [publicProvider()]
+  [
+    alchemyProvider({
+      apiKey: 'blrtXAtdt4wsZpfi3CgVhcRZ8J5uXMc4',
+    }),
+    publicProvider(),
+  ],
+  { stallTimeout: 5000 },
 );
 
 const { connectors } = getDefaultWallets({
