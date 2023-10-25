@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PresentationControls, Float } from "@react-three/drei";
 import styles from "../styles/Home.module.css";
@@ -11,13 +11,15 @@ import {
   Container,
   Flex,
   Link,
+  Menu,
   Text,
 } from "@chakra-ui/react";
 import Model from "../components/Model";
 import Icons from "../components/Icons";
 import Projects from "../components/Projects";
+import { FaCode, FaGithub } from "react-icons/fa";
+import Menubar from "../components/Menubar";
 const Home: React.FC = () => {
-
   const [isMobile, setIsMobile] = useState(false); // Use state to store isMobile value
 
   useEffect(() => {
@@ -26,11 +28,11 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.rootContainer}>
-      <Icons />
+      <Menubar />
       <Center>
         <Flex
           flexDirection={{ base: "column", lg: "row" }}
-          style={{paddingTop: isMobile ? 0 : "8vh"}}
+          style={{ paddingTop: isMobile ? 0 : "8vh" }}
         >
           <Box width={{ base: "100%", lg: "50%" }}>
             <Center h="100%">
@@ -40,26 +42,42 @@ const Home: React.FC = () => {
                   fontWeight="bold"
                   mb="4"
                 >
-                  Hi, I am<br /><span className={styles.gradient}>Christian Schmid</span>
+                  Hi, I am
+                  <br />
+                  <span className={styles.gradient}>Christian Schmid</span>
                 </Text>
                 <Text fontSize={{ base: "lg", lg: "2xl" }}>
-                  Your tech wizard who transforms ideas into reality. Feel free to
-                  check out my projects and don&apos;t hesitate to get in touch. Let&apos;s
-                  make something amazing!
+                  Your tech wizard who transforms ideas into reality. Feel free
+                  to check out my projects and don&apos;t hesitate to get in
+                  touch. Let&apos;s make something amazing!
                 </Text>
                 <ButtonGroup variant="outline" spacing="6" mt={4} size={"lg"}>
-                    <Projects />
-                    <Link target="_blank" href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a/">
-                      <Button  style={{backgroundColor: "#deb5e3"}} className={styles.hire}>
-                        Hire Me
-                      </Button>
-                    </Link>
+                  <Link href="/Projects">
+                    <Button
+                      style={{ backgroundColor: "#3c2460", color: "white" }}
+                      className={styles.projects}
+                      leftIcon={<FaCode />}
+                    >
+                      Projects
+                    </Button>
+                  </Link>
+                  <Link
+                    target="_blank"
+                    href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a/"
+                  >
+                    <Button
+                      style={{ backgroundColor: "#deb5e3" }}
+                      className={styles.hire}
+                    >
+                      Hire Me
+                    </Button>
+                  </Link>
                 </ButtonGroup>
               </Container>
             </Center>
           </Box>
           <Box width={{ base: "100%", lg: "50%" }}>
-          <div
+            <div
               style={{
                 height: isMobile ? "75vh" : "100%",
                 paddingTop: isMobile ? "5vh" : 0,

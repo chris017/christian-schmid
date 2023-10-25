@@ -18,3 +18,16 @@
   box-shadow: 0 20px 80px -10px #deb5e3;
 }
 
+.navLink {
+  text-decoration: none !important;
+}
+
+.navLink:hover {
+  opacity: 0.6;
+  color: "#3c2460";
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}

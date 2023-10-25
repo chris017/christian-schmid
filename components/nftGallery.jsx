@@ -1,7 +1,6 @@
 // Importing necessary modules and components
 import styles from "../styles/NftGallery.module.css";
 import { useEffect, useState } from "react";
-
 // Defining the main component of the NFT gallery
 export default function NftGallery({
 	walletAddress,
@@ -109,7 +108,8 @@ export default function NftGallery({
 							return <NftCard key={nft.tokenId} nft={nft} />;
 						})
 					) : (
-						<p>No NFTs found for the selected address</p>
+                        <div>
+                        </div>
 					)}
 				</div>
 			</div>
