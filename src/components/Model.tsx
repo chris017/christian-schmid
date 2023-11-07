@@ -1,7 +1,7 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { useFrame } from "@react-three/fiber";
 import { useRef, RefObject } from "react";
 
@@ -30,6 +30,7 @@ const Model: React.FC<ModelProps> = (props) => {
       time += delta;
       const verticalOffset = Math.sin(time) * 0.1; // Adjust the amplitude (0.5 in this case)
       groupRef.current.position.y = verticalOffset;
+      groupRef.current.scale.set(1, 1, 1);
     }
   });
 
