@@ -20,13 +20,16 @@ export default function Footer () {
           <div className="w-full px-4">
             <nav className="list-none mb-10">
               <li>
-                <a href='#' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Home</a>
+                <a href='/' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Home</a>
               </li>
               <li>
-                <a href='#Companies' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Companies</a>
+                <a href='/#Companies' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Companies</a>
               </li>
               <li>
-                <a href='#Projects' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Projects</a>
+                <a href='/#Projects' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Projects</a>
+              </li>
+              <li>
+                <a href='/messenger' className={`text-sm font-semibold leading-6 text-gray-900 ${style.linkMenu}`}>Messenger</a>
               </li>
             </nav>
           </div>

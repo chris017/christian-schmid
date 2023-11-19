@@ -10,9 +10,10 @@ import style from '../app/home.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 const navigation = [
-    { name: 'Home', href: '#' },
-    { name: 'Companies', href: '#Companies' },
-    { name: 'Projects', href: '#Projects' },
+  { name: 'Home', href: '/' },
+  { name: 'Companies', href: '/#Companies' },
+  { name: 'Projects', href: '/#Projects' },
+  { name: 'Messenger', href: '/messenger' },
 ]
 
 export default function Header() {
@@ -45,7 +46,7 @@ export default function Header() {
 <header className="absolute inset-x-0 top-0 z-50 animate-fade animate-ease-linear sticky">
         <nav className={`flex items-center justify-between p-6 lg:px-8" aria-label="Global ${scrolled ? 'bg-white' : ''}`}>
           <div className="flex lg:flex-1">
-            <a href="#" id="Home" className="-m-1.5 p-1.5">
+            <a href="/" id="Home" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Logo
                  width={32}

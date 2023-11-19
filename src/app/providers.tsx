@@ -8,12 +8,14 @@ import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
   mainnet,
   polygon,
+  polygonMumbai,
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
       mainnet,
       polygon,
+      polygonMumbai,
     ],
     [
       alchemyProvider({
@@ -41,7 +43,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   React.useEffect(() => setMounted(true), [])
   return <WagmiConfig config={config}><RainbowKitProvider chains={chains} modalSize="compact" theme={lightTheme({
     accentColor:
-    "linear-gradient(to left, #eaafc8, #654ea3)",
+    "black",
     accentColorForeground: "white",
     borderRadius: "small",
     fontStack: "system",
