@@ -29,7 +29,7 @@ export default function Home() {
             <span className={style.cs}>Secure</span> messaging
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-            Send and receive secure messages on the blockchain.
+            Send and receive secure messages on the blockchain with my self-written smart contract using the Polygon chain.
             </p>
           </div>
         </div>

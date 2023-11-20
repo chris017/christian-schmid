@@ -49,6 +49,11 @@ function SendMessage() {
     args: [address],
   });
 
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault(); // Prevent form from submitting and causing navigation
+    write?.();
+  };
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -127,9 +132,9 @@ function SendMessage() {
 
         <div className="mt-10 flex items-center gap-x-6">
           <button
-            type="submit"
+            type="button"
             disabled={!addressSend || !message || !!addressError || !write}
-            onClick={() => write?.()}
+            onClick={handleSubmit}
             className={`flex w-1/2 justify-center rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ${styles.hire}`}
           >
             Send Message
@@ -161,11 +166,10 @@ function SendMessage() {
       {isDrawerOpen && (
         <div
           id="drawer-bottom-example"
-          className="fixed bottom-0 left-0 right-0 z-40 w-full p-4 overflow-y-auto transition-transform bg-white dark:bg-gray-800 transform-none"
+          className="fixed bottom-0 left-0 right-0 z-40 w-full max-h-[40vh] p-4 overflow-y-auto transition-transform bg-white"
           tabIndex={-1}
           aria-labelledby="drawer-bottom-label"
         >
-          {/* Drawer content here */}
           <button
             type="button"
             onClick={toggleDrawer}
@@ -173,7 +177,6 @@ function SendMessage() {
             aria-controls="drawer-bottom-example"
           >
             X
-            {/* Close icon SVG */}
             <span className="sr-only">Close menu</span>
           </button>
           {drawerContent} 
