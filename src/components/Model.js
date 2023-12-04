@@ -1,25 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import { GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { useFrame } from "@react-three/fiber";
-import { useRef, RefObject } from "react";
 
-interface ExtendedGLTF extends GLTF {
-  nodes: {
-    Plane: THREE.Mesh;
-    Plane001: THREE.Mesh;
-  };
-}
+const Model = (props) => {
+  const { nodes } = useGLTF("/eth.gltf");
 
-interface ModelProps {
-  [key: string]: any;
-}
-
-const Model: React.FC<ModelProps> = (props) => {
-  const { nodes } = useGLTF("/eth.gltf") as ExtendedGLTF;
-
-  const groupRef = useRef<THREE.Group>(null); // Initialize the ref with null
+  const groupRef = useRef(); // Initialize the ref with null
 
   let time = 0; // Initialize time variable
 
@@ -58,7 +45,5 @@ const Model: React.FC<ModelProps> = (props) => {
     </group>
   );
 };
-
-useGLTF.preload("/eth.gltf");
 
 export default Model;

@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@layer base {
+  :root {
+    --text: #121317;
+    --background: white;
+    --primary: #251952;
+    --secondary: #b1a6ba;
+    --accent: #7243a8;
+  }
+  .dark {
+    --text: #e8e9ed;
+    --background: #111827;
+    --primary: #b9ade6;
+    --secondary: #504559;
+    --accent: #8657bc;
+  }
+}

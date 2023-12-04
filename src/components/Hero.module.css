@@ -1,0 +1,18 @@
+.gd {
+    background: linear-gradient(120deg,var(--primary),var(--accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hd{
+    background: linear-gradient(120deg,var(--primary),var(--accent));
+}
+
+.btnHero::hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
