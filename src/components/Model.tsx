@@ -3,57 +3,68 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { useFrame } from "@react-three/fiber";
-import { useRef, RefObject } from "react";
-
-interface ExtendedGLTF extends GLTF {
-  nodes: {
-    Plane: THREE.Mesh;
-    Plane001: THREE.Mesh;
-  };
-}
+import { useRef } from "react";
 
 interface ModelProps {
   [key: string]: any;
 }
 
 const Model: React.FC<ModelProps> = (props) => {
-  const { nodes } = useGLTF("/eth.gltf") as ExtendedGLTF;
+  const gltf = useGLTF("/eth.gltf") as GLTF;
 
-  const groupRef = useRef<THREE.Group>(null); // Initialize the ref with null
+  const groupRef = useRef<THREE.Group>(null);
 
-  let time = 0; // Initialize time variable
+  let time = 0;
 
   useFrame((_state, delta) => {
     if (groupRef.current) {
-      // Rotate the model around the Y-axis
-      groupRef.current.rotation.y += (Math.PI / 20) * delta; // Adjust the rotation speed as needed
+      groupRef.current.rotation.y += (Math.PI / 20) * delta;
       time += delta;
-      const verticalOffset = Math.sin(time) * 0.1; // Adjust the amplitude (0.5 in this case)
+      const verticalOffset = Math.sin(time) * 0.1;
       groupRef.current.position.y = verticalOffset;
       groupRef.current.scale.set(1, 1, 1);
     }
   });
 
+  // Function to traverse and find specific nodes by name
+  const findNodeByName = (name: string): THREE.Mesh | undefined => {
+    const scene = gltf.scene;
+    let foundNode: THREE.Mesh | undefined;
+
+    scene.traverse((node) => {
+      if (node instanceof THREE.Mesh && node.name === name) {
+        foundNode = node;
+      }
+    });
+
+    return foundNode;
+  };
+
+  const plane = findNodeByName("Plane") as THREE.Mesh;
+  const plane001 = findNodeByName("Plane001") as THREE.Mesh;
+
   return (
     <group ref={groupRef} {...props} dispose={null}>
-      {nodes && (
-        <>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Plane.geometry}
-            material={new THREE.MeshNormalMaterial()}
-            rotation={[-Math.PI / 2, Math.PI / 4, 0]}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Plane001.geometry}
-            material={new THREE.MeshNormalMaterial()}
-            position={[0, -1.345, 0]}
-            rotation={[-Math.PI / 2, Math.PI / 4, 0]}
-          />
-        </>
+      {plane && (
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={plane.geometry as THREE.BufferGeometry}
+          material={new THREE.MeshBasicMaterial({ wireframe: true, color: "black" })}
+          position={plane.position}
+          rotation={[-Math.PI / 2, Math.PI / 4, 0]}
+        />
+      )}
+
+      {plane001 && (
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={plane001.geometry as THREE.BufferGeometry}
+          material={new THREE.MeshBasicMaterial({ wireframe: true, color: "black" })}
+          position={plane001.position}
+          rotation={[-Math.PI / 2, Math.PI / 4, 0]}
+        />
       )}
     </group>
   );

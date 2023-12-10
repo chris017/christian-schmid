@@ -3,7 +3,7 @@ import { useContractWrite, useAccount } from "wagmi";
 import datajs from "../../data.json";
 import { usePrepareContractWrite, useContractRead } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import styles from "../app/home.module.css";
+import styles from "../components/styles/Home.module.css";
 
 
 function SendMessage() {
@@ -20,9 +20,9 @@ function SendMessage() {
   });
 
   
-  const { data, isLoading, isSuccess, write } = useContractWrite(config);
+  const { write } = useContractWrite(config);
 
-  const { address, isConnecting, isConnected } = useAccount({
+  const { address, isConnected } = useAccount({
     onConnect({ address, connector, isReconnected }) {
       console.log("Connected", { address, connector, isReconnected });
     },
@@ -87,10 +87,10 @@ function SendMessage() {
   }, [addressSend, message]);
 
   return (
-    <div className="text-gray-600 flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8">
+    <div className="text-gray-600 flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 ">
       <form className="space-y-6 mt-10 sm:mx-auto sm:w-full sm:max-w-sm" action="#" method="POST">
         <div>
-          <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900 text-left">
             Address
           </label>
           <div className="mt-2">
@@ -104,14 +104,14 @@ function SendMessage() {
               onChange={handleAddressChange}
               maxLength={42}
               pattern="^[a-zA-Z0-9]*$"
-              className={addressError ? "input-error" : "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"}
+              className={addressError ? "input-error" : "pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"}
             />
             {addressError && <div className="error-message">{addressError}</div>}
           </div>
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900 text-left">
             Message
           </label>
           <div className="mt-2">
@@ -125,7 +125,7 @@ function SendMessage() {
               onChange={handleMessageChange}
               minLength={1}
               maxLength={150}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -135,17 +135,18 @@ function SendMessage() {
             type="button"
             disabled={!addressSend || !message || !!addressError || !write}
             onClick={handleSubmit}
-            className={`flex w-1/2 justify-center rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ${styles.hire}`}
+            className={`flex w-1/2 justify-center rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ${styles.btn}`}
           >
-            Send Message
+            Send
           </button>
           <button
             onClick={toggleDrawer}
             aria-controls="drawer-bottom-example"
             type="button"
-            className={`flex w-1/2  justify-center rounded-md px-3.5 py-2.5 text-sm font-semibold text-black ${styles.inbox}`}
+            className={`flex w-1/2  justify-center rounded-md px-3.5 py-2 text-sm font-semibold text-black border-2 border-black`}
+            
           >
-            Your Inbox <span aria-hidden="true"> →</span>
+            Inbox <span aria-hidden="true"className="pl-2">→</span>
           </button>
         </div>
         <div className="flex w-full justify-center">
