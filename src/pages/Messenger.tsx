@@ -33,7 +33,7 @@ export default function Messenger() {
             Secure <span className={style.cs}>messaging</span>
             </h1>
             <p className={`mt-6 text-lg leading-8 ${style.heading}`}>
-            Send and receive secure messages on the blockchain with my self-written smart contract using the Polygon chain.
+            Send and receive secure messages on the blockchain with my self-written smart contract using the Polygon chain. Make sure you are connected to your wallet.
             </p>
           </div>
         </div>

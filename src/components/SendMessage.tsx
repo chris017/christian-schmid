@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useContractWrite, useAccount } from "wagmi";
+import { useContractWrite, useAccount, useWaitForTransaction } from "wagmi";
 import datajs from "../../data.json";
 import { usePrepareContractWrite, useContractRead } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import styles from "../components/styles/Home.module.css";
-
 
 function SendMessage() {
   const [addressSend, setAddressSend] = useState("");
   const [message, setMessage] = useState("");
   const [args, setArgs] = useState<Array<string | undefined>>([]);
   const [addressError, setAddressError] = useState("");
+  const [transactionStatus, setTransactionStatus] = useState("");
+  const [isTransactionInProgress, setIsTransactionInProgress] = useState(false);
 
   const { config } = usePrepareContractWrite({
     address: "0x65e68bDb2227Ab0Fc00b6C4a67bc4b158D997aE3",
@@ -19,9 +20,47 @@ function SendMessage() {
     args: args,
   });
 
-  
-  const { write } = useContractWrite(config);
+  const { write, data: writeData } = useContractWrite(config);
 
+  const { status } = useWaitForTransaction({
+    hash: writeData?.hash,
+  });
+
+  useEffect(() => {
+    if (writeData?.hash) {
+      // Transaction has been initiated, start waiting for the result
+      setIsTransactionInProgress(true);
+      // Clear form fields
+      setAddressSend("");
+      setMessage("");
+    }
+
+    if (status === 'success') {
+      setIsTransactionInProgress(false);
+      setTransactionStatus('Transaction successful!');
+      
+      // Set a timeout to clear the success message after 5 seconds
+      const timer = setTimeout(() => {
+        setTransactionStatus('');
+      }, 5000);
+
+      // Clear the timeout if the component unmounts
+      return () => clearTimeout(timer);
+    } else if (status === 'error') {
+      setIsTransactionInProgress(false);
+      setTransactionStatus('Transaction failed.');
+      // Set a timeout to clear the success message after 5 seconds
+      const timer = setTimeout(() => {
+        setTransactionStatus('');
+      }, 5000);
+
+      // Clear the timeout if the component unmounts
+      return () => clearTimeout(timer);
+    }
+
+  }, [writeData, status]);
+
+  
   const { address, isConnected } = useAccount({
     onConnect({ address, connector, isReconnected }) {
       console.log("Connected", { address, connector, isReconnected });
@@ -75,10 +114,8 @@ function SendMessage() {
       </ul>
     );
   } else if (isConnected) {
-    // When wallet is connected but no messages
     drawerContent = <div>No messages found in your inbox.</div>;
   } else {
-    // When wallet is not connected
     drawerContent = <div>Please make sure you are connected to your Wallet.</div>;
   }
 
@@ -144,23 +181,21 @@ function SendMessage() {
             aria-controls="drawer-bottom-example"
             type="button"
             className={`flex w-1/2  justify-center rounded-md px-3.5 py-2 text-sm font-semibold text-black border-2 border-black`}
-            
           >
-            Inbox <span aria-hidden="true"className="pl-2">→</span>
+            Inbox <span aria-hidden="true" className="pl-2">→</span>
           </button>
         </div>
         <div className="flex w-full justify-center">
-        <ConnectButton 
-          accountStatus={{
-            smallScreen: 'avatar',
-            largeScreen: 'avatar',
-          }}
-          showBalance={{
-            smallScreen: false,
-            largeScreen: false,
-          }}
-        />
-       
+          <ConnectButton 
+            accountStatus={{
+              smallScreen: 'avatar',
+              largeScreen: 'full',
+            }}
+            showBalance={{
+              smallScreen: false,
+              largeScreen: true,
+            }}
+          />
         </div>
       </form>
 
@@ -180,8 +215,16 @@ function SendMessage() {
             X
             <span className="sr-only">Close menu</span>
           </button>
-          {drawerContent} 
+          {drawerContent}
         </div>
+      )}
+      {/* Display waiting message while transaction is in progress */}
+      {isTransactionInProgress && (
+        <div className={`${styles.heading} mt-4 text-center text-sm font-medium `}>Waiting for transaction to go through...</div>
+      )}
+      {/* Display transaction status */}
+      {transactionStatus && (
+        <div className="mt-4 text-center text-sm font-medium text-green-600">{transactionStatus}</div>
       )}
     </div>
   );

@@ -1,8 +1,11 @@
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import Messenger from './pages/Messenger.tsx'
 import NotFound from './pages/NotFound.tsx'
+
+
 import './index.css'
 import {
   createBrowserRouter,
@@ -20,8 +23,6 @@ import {
 import { publicProvider } from 'wagmi/providers/public';
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
-      mainnet,
-      polygon,
       polygonMumbai,
     ],
     [
