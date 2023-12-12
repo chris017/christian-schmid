@@ -39,6 +39,7 @@ export default function Hero() {
             </p>
             <div className="mt-10 flex items-center gap-x-6 justify-start lg:justify-start">
               <a
+                target="blank"
                 href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a"
                 className={`rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ${style.btn}`}
               >

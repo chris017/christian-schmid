@@ -44,7 +44,7 @@ export default function Projects() {
                   I earned my Ethereum Dev Bootcamp certificate from Alchemy University through my Skill Share project.
                   </p>
   
-                  <p className="mt-8 font-bold"><a href="https://polygonscan.com/tx/0x166e0988ec3637fb08f742808cba53328b918e43927c4e2910b897ad1505cba4">Blockchain Proof<span aria-hidden="true"className="pl-2">{'\u2192'}</span></a></p>
+                  <p className="mt-8 font-bold"><a target="blank" href="https://polygonscan.com/tx/0x166e0988ec3637fb08f742808cba53328b918e43927c4e2910b897ad1505cba4">Blockchain Proof<span aria-hidden="true"className="pl-2">{'\u2192'}</span></a></p>
                 </div>
               </div>
             </a>
@@ -68,7 +68,7 @@ export default function Projects() {
                   Blockchain-based escrow app ensures secure, user-friendly transactions
                   </p>
   
-                  <p className="mt-8 font-bold"><a href="https://github.com/chris017/alchemy-ethereum-bootcamp/tree/master/Week%205%20-%20Sodality/Assignment%20-%20Decentralized%20Escrow%20Application">GitHub<span aria-hidden="true"className="pl-2">{'\u2192'}</span></a></p>
+                  <p className="mt-8 font-bold"><a target="blank" href="https://github.com/chris017/alchemy-ethereum-bootcamp/tree/master/Week%205%20-%20Sodality/Assignment%20-%20Decentralized%20Escrow%20Application">GitHub<span aria-hidden="true"className="pl-2">{'\u2192'}</span></a></p>
                 </div>
               </div>
             </a>
@@ -116,7 +116,7 @@ export default function Projects() {
                   Enhances security with client-server architecture & public key cryptography.
                   </p>
                   
-                  <p className="mt-8 font-bold"><a href="https://github.com/chris017/alchemy-ethereum-bootcamp/tree/master/Week%201%20-%20Blockchain%20Cryptography/Assignment%20-%20keytesting">GitHub<span aria-hidden="true"className="pl-2">{'\u2192'}</span></a></p>
+                  <p className="mt-8 font-bold"><a target="blank" href="https://github.com/chris017/alchemy-ethereum-bootcamp/tree/master/Week%201%20-%20Blockchain%20Cryptography/Assignment%20-%20keytesting">GitHub<span aria-hidden="true"className="pl-2">{'\u2192'}</span></a></p>
                 </div>
               </div>
             </a>
