@@ -25,26 +25,26 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       setIsLoading(false)
     }, 3000)
 
-    const signInResult = await signIn("email", {
-      email: email,
-      callbackUrl: `${window.location.origin}`,
-      redirect: false,
-    });
+    // const signInResult = await signIn("email", {
+    //   email: email,
+    //   callbackUrl: `${window.location.origin}`,
+    //   redirect: false,
+    // });
 
-    if (!signInResult?.ok) {
-      return toast({
-        title: "Error",
-        description: "Something went wrong.",
+    // if (!signInResult?.ok) {
+    //   return toast({
+    //     title: "Error",
+    //     description: "Something went wrong.",
       
-        duration: 3000,
-      });
-    }
-    return toast({
-      title: "Success",
-      description: "Check your email for the sign in link.",
-      duration: 3000,
+    //     duration: 3000,
+    //   });
+    // }
+    // return toast({
+    //   title: "Success",
+    //   description: "Check your email for the sign in link.",
+    //   duration: 3000,
 
-    });
+    // });
   }
 
   return (
@@ -66,7 +66,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
             />
           </div>
-          <Button disabled={isLoading} type="submit">
+          <Button disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
