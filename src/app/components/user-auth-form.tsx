@@ -29,7 +29,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     //   email: email,
     //   callbackUrl: `${window.location.origin}`,
     //   redirect: false,
-    // });
+    // });/
 
     // if (!signInResult?.ok) {
     //   return toast({
