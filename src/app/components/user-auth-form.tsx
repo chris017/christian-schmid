@@ -14,7 +14,7 @@ import { toast } from "@/components/ui/use-toast"
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  // const [isLoading, setIsLoading] = React.useState<boolean>(false)
   // const [email, setEmail] = useState<string | string>("")
 
   // async function signInWithEmail(event: React.SyntheticEvent) {
@@ -49,7 +49,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
-      <form>
+      {/* <form>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
@@ -62,7 +62,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              // onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               
             />
           </div>
@@ -73,7 +73,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             Sign In with Email
           </Button>
         </div>
-      </form>
+      </form> */}
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
@@ -86,12 +86,12 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       </div>
       <Button onClick={() => signIn("github", {
         callbackUrl: `${window.location.origin}/dashboard`
-      })} variant="outline" type="button" disabled={isLoading}>
-        {isLoading ? (
+      })} variant="outline" type="button" >
+        {/* {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-        ) : (
+        ) : ( */}
           <Icons.gitHub className="mr-2 h-4 w-4" />
-        )}{" "}
+        {/* )}{" "} */}
         GitHub
       </Button>
     </div>
