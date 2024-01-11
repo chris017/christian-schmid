@@ -15,15 +15,15 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
-  const [email, setEmail] = useState<string | string>("")
+  // const [email, setEmail] = useState<string | string>("")
 
-  async function signInWithEmail(event: React.SyntheticEvent) {
-    event.preventDefault()
-    setIsLoading(true)
+  // async function signInWithEmail(event: React.SyntheticEvent) {
+  //   event.preventDefault()
+  //   setIsLoading(true)
 
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
+  //   setTimeout(() => {
+  //     setIsLoading(false)
+  //   }, 3000)
 
     // const signInResult = await signIn("email", {
     //   email: email,
@@ -45,11 +45,11 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     //   duration: 3000,
 
     // });
-  }
+  // }
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
-      <form onSubmit={signInWithEmail}>
+      <form>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
@@ -62,11 +62,11 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              onChange={(event) => setEmail(event.target.value)}
-              disabled={isLoading}
+              // onChange={(event) => setEmail(event.target.value)}
+              
             />
           </div>
-          <Button disabled={isLoading}>
+          <Button >
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
