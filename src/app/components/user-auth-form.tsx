@@ -11,9 +11,9 @@ import { Label } from "@/components/ui/label"
 import { signIn } from "next-auth/react"
 import { toast } from "@/components/ui/use-toast"
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+// interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+export function UserAuthForm() {
   // const [isLoading, setIsLoading] = React.useState<boolean>(false)
   // const [email, setEmail] = useState<string | string>("")
 
@@ -48,7 +48,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   // }
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={("grid gap-6")}>
       {/* <form>
         <div className="grid gap-2">
           <div className="grid gap-1">
