@@ -3,6 +3,7 @@ import { PresentationControls, Float } from "@react-three/drei";
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { Canvas } from "@react-three/fiber";
+import Link from "next/link";
 import Model from "../components/Model";
 import  {Logos}  from "./Logos";
 export default function Hero() {
@@ -22,9 +23,9 @@ export default function Hero() {
             Let&apos;s make something amazing!
             </p>
             <div className="mt-10 flex items-center gap-x-6 justify-start lg:justify-start">
-              <a href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a">
+              <Link target="_blank" href="https://www.linkedin.com/in/christian-schmid-8b4b1b16a">
                 <Button>Hire Me</Button>
-              </a>
+              </Link>
               <a  href="#Projects">
               <Button variant="secondary">Projects<ArrowRight className="h-4 w-4"/></Button>
               </a>
