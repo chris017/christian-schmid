@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { Canvas } from "@react-three/fiber";
 import Model from "../components/Model";
-import { Logos } from "./Logos";
+import  {Logos}  from "./Logos";
 export default function Hero() {
     return (
     <div className="relative isolate px-2 lg:px-8 ">
+      
         <div className=" text-left mx-auto max-w-2xl overflow-hidden pt-8 sm:pt-24 lg:pt-26  mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 px-5">
           <div className="  animate-fade-right animate-ease-linear">
             <h1 className=" text-4xl font-bold tracking-tight  sm:text-6xl">
@@ -40,7 +41,7 @@ export default function Hero() {
               </div>
         </div>
         <Logos/>
-
-      </div>
+        </div>
+    
     )
 }
