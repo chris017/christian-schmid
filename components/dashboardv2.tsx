@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import {ConnectButton} from "@rainbow-me/rainbowkit"
 import {Wallet, CalendarDays, BarChart, ArrowUpRight } from "lucide-react"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
@@ -15,6 +16,7 @@ export function Dashboardv2() {
   return (
     <div className="flex flex-col h-screen">
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10">
+        <ConnectButton />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -109,7 +111,7 @@ export function Dashboardv2() {
             </Table>
           </Card>
         </div>
-        <w3m-button />
+        {/* <w3m-button /> */}
       </main>
     </div>
   )

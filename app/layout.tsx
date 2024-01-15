@@ -3,9 +3,9 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider"
 
 import './globals.css'
-import { Web3Modal } from "./context/Web3Modal";
+// import { Web3Modal } from "./context/Web3Modal";
 
-// import Providers from './providers'
+import Providers from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,9 +28,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-       <Web3Modal>
+       {/* <Web3Modal> */}
+        <Providers>
          {children}
-         </Web3Modal>
+         {/* </Web3Modal> */}
+          </Providers>
         </ThemeProvider>
         </body>
     </html>
