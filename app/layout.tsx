@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider"
-import "@rainbow-me/rainbowkit/styles.css"
-import './globals.css'
 
-import Providers from './providers'
+import './globals.css'
+import { Web3Modal } from "./context/Web3Modal";
+
+// import Providers from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,9 +28,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-        <Providers>
+       <Web3Modal>
          {children}
-        </Providers>
+         </Web3Modal>
         </ThemeProvider>
         </body>
     </html>
