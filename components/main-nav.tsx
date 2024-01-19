@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { ModeToggle } from "./ModeToggle"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 import CustomLink from "./custom-link"
 import {
@@ -19,18 +20,20 @@ import { Button } from "./ui/button"
 export function MainNav() {
   return (
     <div className="flex items-center space-x-2 lg:space-x-6">
-      <a>
+     <Link href="/">
         CS
-      </a>
+      </Link>
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <ListItem href="#Projects" title="Projects">
-                Some of my work
+                <Link href="/dashboard">
+                <ListItem title="Dashboard">
+                ERC20-Checker
                 </ListItem>
+                </Link>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>

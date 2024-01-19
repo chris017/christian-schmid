@@ -1,19 +1,28 @@
 "use client";
 import React from 'react';
-import {RainbowKitProvider, getDefaultWallets} from '@rainbow-me/rainbowkit';
+import { useTheme } from "next-themes";
+import {RainbowKitProvider, getDefaultWallets, lightTheme,
+  darkTheme} from '@rainbow-me/rainbowkit';
 import {mainnet} from 'wagmi/chains';
 import '@rainbow-me/rainbowkit/styles.css';
 import {publicProvider} from 'wagmi/providers/public';
 import {configureChains, createConfig, WagmiConfig} from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 
-const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;
 
-const {chains, publicClient, webSocketPublicClient} = configureChains(
-    [mainnet],
-    [alchemyProvider({ apiKey:  (ALCHEMY_API_KEY || "test")})],
-);
-// console.log(process.env.ALCHEMY_API_KEY)
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+    [
+      mainnet,
+    ],
+    [
+      alchemyProvider({
+        apiKey: process.env.ALCHEMY_API_KEY as string,
+      }),
+      publicProvider(),
+    ],
+    { stallTimeout: 5000 },
+  );
+
 
 
 const { connectors } = getDefaultWallets({
@@ -35,9 +44,20 @@ interface Providers {
   }
 
 const Providers: React.FC<Providers> = ({ children }) => {
+  const { theme } = useTheme();
     return (
         <WagmiConfig config={wagmiConfig}>
-            <RainbowKitProvider chains={chains} modalSize="compact">
+            <RainbowKitProvider theme={theme === 'dark' ? darkTheme(
+              {
+                accentColor: "#FAFAFA",
+                accentColorForeground: "#18181B",
+              }
+            ) : lightTheme(
+              {
+                accentColor: "#18181B",
+                accentColorForeground: "#FAFAFA",
+              }
+            )} chains={chains} modalSize="compact">
                 {children}
             </RainbowKitProvider>
         </WagmiConfig>
