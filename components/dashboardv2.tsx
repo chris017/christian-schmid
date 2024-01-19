@@ -94,7 +94,7 @@ export function Dashboardv2() {
             AssetTransfersCategory.ERC721,
             AssetTransfersCategory.ERC1155,
           ],
-          maxCount: 0x05,
+          maxCount: 0x0A,
         });
 
         const hashes = assetTransfers.transfers.map((transfer) =>
@@ -194,12 +194,12 @@ export function Dashboardv2() {
                     ))
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={5}>No transactions found.</TableCell>
+                      <TableCell colSpan={10}>No transactions found.</TableCell>
                     </TableRow>
                   )
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={5}>Wallet not connected.</TableCell>
+                    <TableCell colSpan={10}>Wallet not connected.</TableCell>
                   </TableRow>
                 )}
               </TableBody>
