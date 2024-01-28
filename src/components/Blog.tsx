@@ -30,8 +30,9 @@ export default function Blog() {
 
     fetchData();
   }, []);
-
+  
   const { isLoading, isAuthenticated } = useKindeAuth();
+  console.log(isAuthenticated);
   if (isLoading) {
     return <p>Loading...</p>; // Display loading indicator while authentication is in progress
   } else if (isAuthenticated) {
