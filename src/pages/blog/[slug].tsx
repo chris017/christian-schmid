@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { PortableText } from '@portabletext/react';
 import { fullBlog } from "@/lib/interface";
 import { client, urlFor } from "../../lib/sanity";
-import NavIn from '@/components/NavIn';
+import Navigation from "../../components/Navigation";
 
 export const revalidate = 30;
 
@@ -39,7 +39,7 @@ export default function BlogArticle() {
 
     return (
         <div>
-        <NavIn />
+        <Navigation />
         <div className="max-w-2xl mx-auto space-y-4">
             <h1>
                 <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">{data.title}</span>
