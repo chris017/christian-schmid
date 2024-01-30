@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PortableText } from '@portabletext/react';
 import { fullBlog } from "@/lib/interface";
-import { client, urlFor } from "../../lib/sanity";
-import Navigation from "../../components/Navigation";
+import { client, urlFor } from "../../../lib/sanity";
+import Navigation from "../../../components/Navigation";
 
 export const revalidate = 30;
 

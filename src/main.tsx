@@ -7,9 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { ThemeProvider } from '@/components/theme-provider'
-import BlogArticle from './pages/blog/[slug].tsx';
-import BlogSide from './pages/blog/BlogSide.tsx';
+import BlogArticle from './pages/dashboard/blog/[slug].tsx';
+import BlogSide from './pages/dashboard/blog/BlogSide.tsx';
 import {KindeProvider} from "@kinde-oss/kinde-auth-react";
+import Dashboard from './pages/dashboard/page.tsx';
 
 
 const router = createBrowserRouter([
@@ -18,12 +19,16 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/blog/:slug",  // Dynamic route for blog posts
+    path: "/dashboard/blog/:slug",  // Dynamic route for blog posts
     element: <BlogArticle />,
   },
   {
-    path: "/blog",
+    path: "/dashboard/blog",
     element: <BlogSide />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   }
 ]);
 

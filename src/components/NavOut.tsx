@@ -2,7 +2,13 @@ import { Button } from "@/components/ui/button"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import { ModeToggle } from "./mode-toggle"
 // import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
+import {  Home,  BookOpen } from "lucide-react";
 
+export const navItems = [
+  { name: "Home", href: "/", icon: Home },
+ 
+  { name: "Blog", href: "/dashboard/blog", icon: BookOpen },
+];
 
 export default function NavOut() {
   // const { login } = useKindeAuth();
@@ -24,8 +30,8 @@ export default function NavOut() {
             <a className=" w-full items-center py-2 text-lg font-semibold" href="/">
               Home
             </a>
-            <a className=" w-full items-center py-2 text-lg font-semibold" href="/blog">
-              Blog
+            <a className=" w-full items-center py-2 text-lg font-semibold" href="/dashboard">
+              Dashboard
             </a>
             {/* <Button variant="ghost" className="btn text-lg font-semibold btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>
               Sign in
@@ -43,8 +49,8 @@ export default function NavOut() {
       <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/">
           Home
         </a>
-        <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/blog">
-          Blog
+        <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard">
+        Dashboard
         </a>
       <nav className="ml-auto hidden lg:flex gap-6 items-center">
         {/* <Button variant="ghost" className="btn btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>

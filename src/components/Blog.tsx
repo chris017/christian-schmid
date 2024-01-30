@@ -39,7 +39,7 @@ export default function Blog() {
     // Display the blog when the user is authenticated
     return (
       <div>
-        <h1 className='text-center text-3xl p-6 container'>Welcome to my <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient'>Dev Blog</span></h1>
+        <h1 className='text-center text-3xl p-6'>Welcome to my <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient'>Dev Blog</span></h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-4xl">
         {data.map((post, idx) => (
           <Card key={idx} className='max-w-md mx-auto'>
@@ -55,7 +55,7 @@ export default function Blog() {
               <p className="p-4 line-clamp-3">{post.smallDescription}</p>
               <div className='flex justify-center'>
               <Button asChild className="justify-center mt-7 ">
-                <a href={`/blog/${post.currentSlug}`}>Read More</a>
+                <a href={`/dashboard/blog/${post.currentSlug}`}>Read More</a>
               </Button>
               </div>
             </CardContent>
