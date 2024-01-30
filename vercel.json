@@ -2,12 +2,17 @@
     "version": 2,
     "routes": [
       {
-        "src": "dashboard/blog/.*",
+        "src": "/.*",
+        "dest": "/index.html",
+        "continue": true
+      },
+      {
+        "src": "/dashboard/blog/.*",
         "dest": "/",
         "continue": true
       },
       {
-        "src": "dashboard/blog",
+        "src": "/dashboard/blog",
         "dest": "/",
         "continue": true
       },
@@ -17,10 +22,9 @@
         "continue": true
       },
       {
-        "src": "dashboard/",
+        "src": "/dashboard/",
         "dest": "/",
         "continue": true
       }
     ]
   }
-  
