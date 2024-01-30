@@ -2,17 +2,22 @@
     "version": 2,
     "routes": [
       {
-        "src": "/blog/.*",
+        "src": "dashboard/blog/.*",
         "dest": "/",
         "continue": true
       },
       {
-        "src": "/blog",
+        "src": "dashboard/blog",
         "dest": "/",
         "continue": true
       },
       {
         "src": "/",
+        "dest": "/",
+        "continue": true
+      },
+      {
+        "src": "dashboard/",
         "dest": "/",
         "continue": true
       }
