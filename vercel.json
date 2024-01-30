@@ -17,7 +17,7 @@
         "continue": true
       },
       {
-        "src": "/dashboard/",
+        "src": "/dashboard",
         "dest": "/",
         "continue": true
       }
