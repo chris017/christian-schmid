@@ -2,11 +2,6 @@
     "version": 2,
     "routes": [
       {
-        "src": "/.*",
-        "dest": "/index.html",
-        "continue": true
-      },
-      {
         "src": "/dashboard/blog/.*",
         "dest": "/",
         "continue": true
