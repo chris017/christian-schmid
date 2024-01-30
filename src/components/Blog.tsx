@@ -4,7 +4,7 @@ import { simpleBlockCard } from '../lib/interface';
 import { client } from '../lib/sanity';
 import { Button } from '@/components/ui/button';
 import { urlFor } from '../lib/sanity';
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+// import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 export const revalidate = 30;
 
@@ -31,11 +31,11 @@ export default function Blog() {
     fetchData();
   }, []);
   
-  const { isLoading, isAuthenticated } = useKindeAuth();
-  console.log(isAuthenticated);
-  if (isLoading) {
-    return <p>Loading...</p>; // Display loading indicator while authentication is in progress
-  } else if (isAuthenticated) {
+  // const { isLoading, isAuthenticated } = useKindeAuth();
+  // console.log(isAuthenticated);
+  // if (isLoading) {
+  //   return <p>Loading...</p>; // Display loading indicator while authentication is in progress
+  // } else if (isAuthenticated) {
     // Display the blog when the user is authenticated
     return (
       <div>
@@ -64,8 +64,8 @@ export default function Blog() {
       </div>
       </div>
     );
-  } else {
-    // Display a message when the user is not authenticated
-    return <h1 className='text-center text-3xl mt-24 container'>You must be <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient'>logged in</span> to see <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient'>the blog</span></h1>;
-  }
+  // } else {
+  //   // Display a message when the user is not authenticated
+  //   return <h1 className='text-center text-3xl mt-24 container'>You must be <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient'>logged in</span> to see <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient'>the blog</span></h1>;
+  // }
 }

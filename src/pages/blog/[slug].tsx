@@ -34,7 +34,7 @@ export default function BlogArticle() {
     }, [slug]);
 
     if (!data) {
-        return <div>Loading...</div>; // Or any other loading state representation
+        return null; // Or any other loading state representation
     }
 
     return (

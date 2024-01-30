@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import { ModeToggle } from "./mode-toggle"
-import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
+// import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
 
 
 export default function NavOut() {
-  const { login } = useKindeAuth();
+  // const { login } = useKindeAuth();
   return (
     <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 justify-between">
         <a className="flex items-center py-4 lg:hidden text-xl" href="/">
@@ -27,9 +27,9 @@ export default function NavOut() {
             <a className=" w-full items-center py-2 text-lg font-semibold" href="/blog">
               Blog
             </a>
-            <Button variant="ghost" className="btn text-lg font-semibold btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>
+            {/* <Button variant="ghost" className="btn text-lg font-semibold btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>
               Sign in
-            </Button>
+            </Button> */}
             <div className=" w-full items-center py-2 text-lg font-semibold">
               <ModeToggle/>
               </div>
@@ -47,9 +47,9 @@ export default function NavOut() {
           Blog
         </a>
       <nav className="ml-auto hidden lg:flex gap-6 items-center">
-        <Button variant="ghost" className="btn btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>
+        {/* <Button variant="ghost" className="btn btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>
               Sign in
-            </Button>
+            </Button> */}
        
         <ModeToggle />
       </nav>
