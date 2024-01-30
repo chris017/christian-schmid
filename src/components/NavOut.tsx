@@ -33,9 +33,9 @@ export default function NavOut() {
             <a className=" w-full items-center py-2 text-lg font-semibold" href="/dashboard">
               Dashboard
             </a>
-            {/* <Button variant="ghost" className="btn text-lg font-semibold btn-ghost sign-in-btn font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient" onClick={() => login()}>
-              Sign in
-            </Button> */}
+            <a className=" w-full items-center py-2 text-lg font-semibold" href="/dashboard/blog">
+              Blog
+            </a>
             <div className=" w-full items-center py-2 text-lg font-semibold">
               <ModeToggle/>
               </div>
