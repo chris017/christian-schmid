@@ -50,9 +50,7 @@ export default async function DashboardLayout({
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) {
-    return(
-      <div className='text-3xl text-center mt-6'>This page is protected, please Login to view it</div>
-    );
+    return redirect("/");
   }
   await getData({
     email: user.email as string,
