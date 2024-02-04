@@ -3,7 +3,7 @@ import React from 'react'; // Import hinzufügen
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
 import { env } from 'process'
 import { WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet } from 'viem/chains'
+import { arbitrum, mainnet, polygonMumbai } from 'viem/chains'
 import ClientOnly from './ClientOnly'
 
 if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
@@ -11,7 +11,7 @@ if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
 }
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
-const chains = [mainnet, arbitrum]
+const chains = [polygonMumbai]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId })
 
 

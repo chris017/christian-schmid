@@ -44,7 +44,7 @@ export function UserNavNot() {
               Home
             </a>
             <a className=" w-full items-center text-lg font-semibold" href="/dashboard">
-              Dashboard
+            Messenger
             </a>
             <a className=" w-full items-center text-lg font-semibold" href="/dashboard/blog">
               Blog
@@ -66,7 +66,7 @@ export function UserNavNot() {
           Home
         </a>
         <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard">
-        Dashboard
+        Messenger
         </a>
         <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard/blog">
         Blog
