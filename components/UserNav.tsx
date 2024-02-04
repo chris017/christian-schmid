@@ -90,8 +90,7 @@ export function UserNav({
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
-            <AvatarImage src={image ?? ""} />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src={image} alt={name} />
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56" align="end" forceMount>
