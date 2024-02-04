@@ -1,20 +1,23 @@
 'use client'
-
+import React from 'react'; // Import hinzufügen
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
-
+import { env } from 'process'
 import { WagmiConfig } from 'wagmi'
 import { arbitrum, mainnet } from 'viem/chains'
 import ClientOnly from './ClientOnly'
 
-
-// 1. Get projectId at https://cloud.walletconnect.com
-const projectId = '2bad02e5b008465fe676ccdc8bfcf574'
-
-// 2. Create wagmiConfig
+if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
+  throw new Error('PROJECT_ID environment variable is not set');
+}
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
 const chains = [mainnet, arbitrum]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId })
 
+
+interface Web3ModalProps {
+  children: React.ReactNode; // Expliziter Typ für children
+}
 // 3. Create modal
 createWeb3Modal({
   wagmiConfig,
@@ -24,6 +27,6 @@ createWeb3Modal({
   themeMode: 'dark',
 })
 
-export function Web3Modal({ children }) {
+export function Web3Modal({ children }: Web3ModalProps) {
   return <WagmiConfig config={wagmiConfig}><ClientOnly>{children}</ClientOnly></WagmiConfig>
 }
