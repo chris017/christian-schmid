@@ -25,6 +25,10 @@ createWeb3Modal({
   chains,
   enableAnalytics: true, 
   themeMode: 'dark',
+    //...
+    themeVariables: {
+      '--w3m-accent': '#00BB7F',
+    }
 })
 
 export function Web3Modal({ children }: Web3ModalProps) {

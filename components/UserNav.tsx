@@ -19,7 +19,7 @@ import { Separator } from "@/components/ui/separator";
 export const navItems = [
   { name: "Home", href: "/", icon: Home },
  
-  { name: "Dashboard", href: "/dashboard", icon: Gauge },
+  { name: "Messenger", href: "/dashboard", icon: Gauge },
 
   { name: "Blog", href: "/dashboard/blog", icon: BookOpen },
 ];
@@ -35,10 +35,6 @@ export function UserNav({
 }) {
   return (
     <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 justify-between">
-    <a className="flex items-center py-4 lg:hidden text-xl" href="/">
-      CS
-      <span className="sr-only">Acme Inc</span>
-    </a>
     <Sheet>
       <SheetTrigger asChild>
         <Button className="lg:hidden" size="icon" variant="ghost">
@@ -72,10 +68,7 @@ export function UserNav({
         </div>
       </SheetContent>
     </Sheet>
-    <a className="mr-6 hidden lg:flex text-2xl" href="/">
-        CS
-        <span className="sr-only">Acme Inc</span>
-      </a>
+   
       <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/">
           Home
         </a>

@@ -30,11 +30,17 @@ export default function Dashboardside() {
       }, [theme]);
 
 
+
     const { themeMode, themeVariables, setThemeMode, setThemeVariables } = useWeb3ModalTheme();
 
    
-    setThemeMode(isDarkMode ? "dark" : "light",);
-    const [addressSend, setAddressSend] = useState("");
+    // setThemeMode(isDarkMode ? "dark" : "light",);
+    useEffect(() => {
+        setThemeMode(isDarkMode ? "dark" : "light",);
+        
+      }, [isDarkMode]);
+    
+      const [addressSend, setAddressSend] = useState("");
   const [message, setMessage] = useState("");
   const [args, setArgs] = useState<Array<string | undefined>>([]);
   const [addressError, setAddressError] = useState("");
@@ -144,6 +150,8 @@ export default function Dashboardside() {
   useEffect(() => {
     setArgs([addressSend, message]);
   }, [addressSend, message]);
+
+  
   
     return (
         <div>
