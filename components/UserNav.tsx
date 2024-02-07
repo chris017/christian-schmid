@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { CreditCard, DoorClosed, Home, Settings, BookOpen, Gauge, ArrowRightIcon } from "lucide-react";
+import { CreditCard, DoorClosed, Home, Settings, BookOpen, Gauge, MessageCircle } from "lucide-react";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { ModeToggle } from "./ui/mode-toggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -19,7 +19,9 @@ import { Separator } from "@/components/ui/separator";
 export const navItems = [
   { name: "Home", href: "/", icon: Home },
  
-  { name: "Messenger", href: "/dashboard", icon: Gauge },
+  { name: "Dashboard", href: "/dashboard", icon: Gauge },
+
+  { name: "Messenger", href: "/dashboard/messenger", icon: MessageCircle },
 
   { name: "Blog", href: "/dashboard/blog", icon: BookOpen },
 ];
@@ -54,14 +56,17 @@ export function UserNav({
               Home
             </a>
             <a className=" w-full items-center text-lg font-semibold" href="/dashboard">
+              Dashboard
+            </a>
+            <a className=" w-full items-center text-lg font-semibold" href="/dashboard/messenger">
               Messenger
             </a>
             <a className=" w-full items-center text-lg font-semibold" href="/dashboard/blog">
               Blog
             </a>
-            <LogoutLink>
+            {/* <LogoutLink>
             <span className="w-full items-center text-lg font-semibold">Log Out{" "}</span>
-            </LogoutLink>
+            </LogoutLink> */}
           <div className=" w-full items-center text-lg font-semibold">
             <ModeToggle />
           </div>
@@ -73,14 +78,17 @@ export function UserNav({
           Home
         </a>
         <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard">
-        Messenger
+        Dashboard
         </a>
+        <a className=" w-full items-center text-lg font-semibold" href="/dashboard/messenger">
+              Messenger
+            </a>
         <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard/blog">
         Blog
         </a>
     <nav className="ml-auto hidden lg:flex gap-6 items-center">
       <ModeToggle />
-      <DropdownMenu>
+      {/* <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
             <AvatarImage src={image} alt={name} />
@@ -108,7 +116,7 @@ export function UserNav({
             </LogoutLink>
           </DropdownMenuItem>
         </DropdownMenuContent>
-      </DropdownMenu>
+      </DropdownMenu> */}
     </nav>
   </header>
   );

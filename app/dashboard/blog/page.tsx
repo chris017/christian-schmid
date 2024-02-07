@@ -21,10 +21,11 @@ async function getData() {
 }
 
 export default async function Dashboard() {
-  const { isAuthenticated } = getKindeServerSession();
+  // const { isAuthenticated } = getKindeServerSession();
   const data: simpleBlockCard[] = await getData();
-  console.log(data);
-  return (await isAuthenticated()) ? (
+  // console.log(data);
+  // return (await isAuthenticated()) ? (
+    return (
     <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-5">
       {data.map((post, idx) => (
         <Card key={idx}>
@@ -45,7 +46,6 @@ export default async function Dashboard() {
         </Card>
       ))}
     </div>
-  ) : (
-    <div>This page is protected, please Login to view it</div>
-  );
+    );
 }
+
