@@ -26,7 +26,8 @@ export default async function Dashboard() {
   // console.log(data);
   // return (await isAuthenticated()) ? (
     return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-5">
+      <div className="justify-center flex items-center mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:w-1/2 mt-5 gap-5">
       {data.map((post, idx) => (
         <Card key={idx}>
           <Image
@@ -45,6 +46,7 @@ export default async function Dashboard() {
           </CardContent>
         </Card>
       ))}
+    </div>
     </div>
     );
 }
