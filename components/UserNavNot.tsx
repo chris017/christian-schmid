@@ -13,8 +13,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { CreditCard, DoorClosed, Home, Settings, BookOpen, DoorOpen, ArrowDown, ArrowRightCircleIcon, ArrowRightIcon, Gauge , MessageCircle} from "lucide-react";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
-
+import { Dropdown } from "./Dropdown";
 import Link from "next/link";
+import { MobileDropdown } from "./MobileDropdown";
 
 export const navItems = [
   { name: "Home", href: "/", icon: Home },
@@ -37,7 +38,7 @@ export function UserNavNot() {
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="w-full sm:w-[540px]">
-          <div className="grid gap-2 pt-24  text-center justify-center ">
+          <div className="grid gap-4 mt-44  text-center justify-center ">
             <a className=" w-full items-center text-lg font-semibold" href="/">
               Home
             </a>
@@ -50,6 +51,7 @@ export function UserNavNot() {
             <a className=" w-full items-center text-lg font-semibold" href="/dashboard/blog">
               Blog
             </a>
+            {/* <MobileDropdown /> */}
             {/* <LoginLink>
             <span className="w-full items-center text-lg font-semibold">Login{" "}</span>
             </LoginLink> */}
@@ -60,24 +62,13 @@ export function UserNavNot() {
         </SheetContent>
       </Sheet>
     
-      <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/">
-          Home
-        </a>
-        <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard">
-        Dashboard
-        </a>
-        <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard/messenger">
-        Messenger
-        </a>
-       
-        <a className="mr-6 lg:flex hidden text-sm font-medium hover:underline" href="/dashboard/blog">
-        Blog
-        </a>
+
+        <Dropdown />
       <nav className="ml-auto hidden lg:flex gap-6 items-center">
           {/* <LoginLink>
             Login{" "}
           </LoginLink> */}
-       
+
         <ModeToggle />
       </nav>
     </header>

@@ -11,7 +11,7 @@ if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
 }
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
-const chains = [polygonMumbai]
+const chains = [mainnet, polygonMumbai]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId })
 
 
