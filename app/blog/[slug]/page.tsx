@@ -3,6 +3,7 @@ import { fullBlog } from "@/app/lib/interface";
 import { client, urlFor } from "../../lib/sanity";
 import Image from 'next/image';
 import {PortableText} from '@portabletext/react'
+import ReactMarkdown from 'react-markdown';
 
 export const revalidate = 30;
 
@@ -12,6 +13,7 @@ async function getData(slug: string) {
         "currentSlug": slug.current,
           title,
           content,
+          bio,
           titleImage
       }[0]
     `
@@ -33,6 +35,9 @@ export default async function BlogArticle({params}: {params: {slug: string}}) {
             <div className="mt-16 prose prose-blue prose-lg dark:prose-invert">
                 <PortableText value={data.content} />
             </div>
+            <div className="mt-16 prose prose-blue prose-lg dark:prose-invert">
+            <ReactMarkdown>{data.bio}</ReactMarkdown>
+        </div>
         </div>
     );
 }
