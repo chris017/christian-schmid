@@ -12,11 +12,11 @@ async function getData(slug: string) {
         "currentSlug": slug.current,
           title,
           content,
-          bio,
-          titleImage
+          titleImage,
       }[0]
     `
     const data = await client.fetch(query);
+    console.log(data);
     return data;
 }
 
@@ -28,8 +28,8 @@ interface Heading {
 
 // Function to extract headings from markdown
 function extractHeadings(markdown: string | null | undefined): Heading[] {
-    if (!markdown) {
-        return []; // Return an empty array if markdown is null or undefined
+    if (typeof markdown !== 'string') {
+        return []; 
     }
     
     const lines = markdown.split('\n');
@@ -38,7 +38,7 @@ function extractHeadings(markdown: string | null | undefined): Heading[] {
         .map(line => {
             const match = line.match(/^#+\s/); // Match the '#' characters at the beginning of the line
             if (match) {
-                const level = match[0].length; // Count the number of '#' characters to determine the heading level
+                const level = match[0].length - 1; // Adjusted to correctly determine the heading level (subtract 1 because match includes a space)
                 const title = line.replace(/^#+\s/, ''); // Remove '#' characters to extract the heading title
                 return { title, level };
             }
@@ -49,7 +49,7 @@ function extractHeadings(markdown: string | null | undefined): Heading[] {
 
 export default async function BlogArticle({params}: {params: {slug: string}}) {
     const data: fullBlog = await getData(params.slug);
-    const headings: Heading[] = extractHeadings(data.bio);
+    const headings: Heading[] = extractHeadings(data.content);
 
     return (
         <div className="max-w-2xl mx-1 space-y-4 md:mx-auto">
@@ -58,9 +58,6 @@ export default async function BlogArticle({params}: {params: {slug: string}}) {
             </h1>
             <div className="flex items-center justify-center">
                 <Image src={urlFor(data.titleImage).url()} priority width={800} height={800} alt="title image" className="border rounded-lg mt-8" />
-            </div>
-            <div className="mt-16 prose prose-blue prose-lg dark:prose-invert">
-                <PortableText value={data.content} />
             </div>
             {/* Render TOC */}
             <div className="toc mt-8">
@@ -85,7 +82,7 @@ export default async function BlogArticle({params}: {params: {slug: string}}) {
                         h6: ({ node, children }) => <h6 id={encodeURIComponent((children as string) ?? '').toLowerCase()}>{children}</h6>,
                     }}
                 >
-                    {data.bio}
+                    {data.content}
                 </ReactMarkdown>
             </div>
         </div>
