@@ -26,11 +26,16 @@ export default {
             title: 'Small Description',
             type: 'text',
         },
+        // {
+        //     name: 'content',
+        //     title: 'Content',
+        //     type: 'array',
+        //     of : [{type: 'block'}]
+        // },
         {
-            name: 'content',
-            title: 'Content',
-            type: 'array',
-            of : [{type: 'block'}]
-        },
+            type: "markdown",
+            description: "A Github flavored markdown field with image uploading",
+            name: "content"
+          },
     ],
 }

@@ -11,4 +11,5 @@ export interface fullBlog{
     smallDescription: string;
     titleImage: any;
     content: any;
+    bio: any;
 }
