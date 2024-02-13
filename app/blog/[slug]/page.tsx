@@ -16,7 +16,7 @@ async function getData(slug: string) {
       }[0]
     `
     const data = await client.fetch(query);
-    console.log(data);
+
     return data;
 }
 
@@ -54,7 +54,7 @@ export default async function BlogArticle({params}: {params: {slug: string}}) {
     return (
         <div className="max-w-2xl mx-1 space-y-4 md:mx-auto">
             <h1>
-                <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">{data.title}</span>
+                <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">{data.title}</span>
             </h1>
             <div className="flex items-center justify-center">
                 <Image src={urlFor(data.titleImage).url()} priority width={800} height={800} alt="title image" className="border rounded-lg mt-8" />

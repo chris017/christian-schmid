@@ -6,6 +6,7 @@ import Image from "next/image";
 import { urlFor } from "../../lib/sanity";
 import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Separator } from "@/components/ui/separator";
 
 export const revalidate = 30;
 
@@ -38,8 +39,9 @@ export default async function Dashboard() {
             className="rounded-t-lg h-[200px] object-cover"
           />
           <CardContent className="mt-5">
-            <h3 className="text-xl line-clamp-2">{post.title}</h3>
-            <p className="line-clamp-3">{post.smallDescription}</p>
+            <h3 className="text-center text-xl line-clamp-2 bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">{post.title}</h3>
+            <Separator className="my-4"/>
+            <p className="line-clamp-3 dark:text-gray-300 text-gray-800 text-sm">{post.smallDescription}</p>
             <Button asChild className="w-full mt-7">
               <Link href={`/blog/${post.currentSlug}`}>Read More</Link>
             </Button>
