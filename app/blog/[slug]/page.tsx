@@ -12,6 +12,7 @@ async function getData(slug: string) {
         "currentSlug": slug.current,
           title,
           content,
+          bio,
           titleImage,
       }[0]
     `
@@ -49,7 +50,7 @@ function extractHeadings(markdown: string | null | undefined): Heading[] {
 
 export default async function BlogArticle({params}: {params: {slug: string}}) {
     const data: fullBlog = await getData(params.slug);
-    const headings: Heading[] = extractHeadings(data.content);
+    const headings: Heading[] = extractHeadings(data.bio);
 
     return (
         <div className="max-w-2xl mx-1 space-y-4 md:mx-auto">
@@ -82,7 +83,7 @@ export default async function BlogArticle({params}: {params: {slug: string}}) {
                         h6: ({ node, children }) => <h6 id={encodeURIComponent((children as string) ?? '').toLowerCase()}>{children}</h6>,
                     }}
                 >
-                    {data.content}
+                    {data.bio}
                 </ReactMarkdown>
             </div>
         </div>
